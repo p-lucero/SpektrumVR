@@ -142,7 +142,7 @@ panner.panningModel = "HRTF";
 analyser.fftSize = 128;
 
 // Fetch the sound that the object emits, attach it to the source node and start playing
-fetch('17 Jaded (Original Mix).m4a')
+fetch('MUSICNAME')
 .then(function(response){
     return response.arrayBuffer();
 })
@@ -184,7 +184,7 @@ function onLoad() {
 
   // Add a repeating grid as a skybox.
   var loader = new THREE.TextureLoader();
-  loader.load('img/box.png', onTextureLoaded);
+  loader.load('BACKGROUNDNAME', onTextureLoaded);
 
   for (var i = 0; i < maxRectangles; i++){
     var geometry2 = new THREE.BoxGeometry(.04, 1, .04);
@@ -225,12 +225,12 @@ function onLoad() {
 function onTextureLoaded(texture) {
   texture.wrapS = THREE.RepeatWrapping;
   texture.wrapT = THREE.RepeatWrapping;
-  texture.repeat.set(boxSize, boxSize);
+  texture.repeat.set(1, 1);
 
   var geometry = new THREE.BoxGeometry(boxSize, boxSize, boxSize);
   var material = new THREE.MeshBasicMaterial({
     map: texture,
-    color: 0x01BE00,
+    color: 0xFFFFFF,
     side: THREE.BackSide
   });
 
